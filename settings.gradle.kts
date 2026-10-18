@@ -8,10 +8,14 @@ pluginManagement {
         google()
         mavenCentral()
         maven {
-            url = uri("https://maven.pkg.github.com/kr328/releases")
-            credentials {
-                username = System.getenv("GITHUB_ACTOR") ?: ""
-                password = System.getenv("GITHUB_TOKEN") ?: ""
+            url = uri("https://maven.pkg.github.com/kr328/magic")
+            val actor = System.getenv("GITHUB_ACTOR")
+            val token = System.getenv("GITHUB_TOKEN")
+            if (!actor.isNullOrEmpty() && !token.isNullOrEmpty()) {
+                credentials {
+                    username = actor
+                    password = token
+                }
             }
         }
     }
@@ -24,10 +28,14 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
         maven {
-            url = uri("https://maven.pkg.github.com/kr328/releases")
-            credentials {
-                username = System.getenv("GITHUB_ACTOR") ?: ""
-                password = System.getenv("GITHUB_TOKEN") ?: ""
+            url = uri("https://maven.pkg.github.com/kr328/magic")
+            val actor = System.getenv("GITHUB_ACTOR")
+            val token = System.getenv("GITHUB_TOKEN")
+            if (!actor.isNullOrEmpty() && !token.isNullOrEmpty()) {
+                credentials {
+                    username = actor
+                    password = token
+                }
             }
         }
     }
