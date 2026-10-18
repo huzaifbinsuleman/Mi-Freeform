@@ -15,6 +15,11 @@ jobs:
           distribution: temurin
           java-version: 17
       - run: yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses > /dev/null || true
+      - run: |
+          git clone --depth 1 --branch 3.1 https://github.com/Kr328/ZygoteLoader.git /tmp/zl
+          cd /tmp/zl
+          chmod +x gradlew
+          ./gradlew publishToMavenLocal --no-daemon
       - run: chmod +x gradlew
       - run: ./gradlew assembleDebug --no-daemon
       - uses: actions/upload-artifact@v4
