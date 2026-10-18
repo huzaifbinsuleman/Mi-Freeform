@@ -1,7 +1,7 @@
 [versions]
 agp = "8.1.1"
 kotlin = "1.8.10"
-zygote-loader = "3.0"
+zygote-loader = "3.1"
 core-ktx = "1.10.1"
 ksp = "1.8.10-1.0.9"
 junit = "4.13.2"
