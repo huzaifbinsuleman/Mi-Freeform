@@ -7,16 +7,17 @@ pluginManagement {
         gradlePluginPortal()
         google()
         mavenCentral()
-        maven(url = "https://maven.kr328.app/releases")
+        maven { url = uri("https://jitpack.io") }
     }
 }
+
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         mavenLocal()
         google()
         mavenCentral()
-        maven(url = "https://maven.kr328.app/releases")
+        maven { url = uri("https://jitpack.io") }
     }
 }
 
