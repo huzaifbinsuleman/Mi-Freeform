@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Context.CONTEXT_IGNORE_SECURITY
 import android.content.Context.CONTEXT_INCLUDE_CODE
+import android.os.Binder
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -20,13 +21,16 @@ class RemoteResourceHolder(context: Context, private val resPkg: String) {
         private const val TAG = "Mi-Freeform/RemoteResourceHolder"
     }
 
-    init {
+        init {
+        val token = Binder.clearCallingIdentity()
         try {
             remoteContext = context.createPackageContext(resPkg, CONTEXT_INCLUDE_CODE or CONTEXT_IGNORE_SECURITY)
         } catch (e: Exception) {
             e.printStackTrace()
             MLog.e(TAG, "init", e)
             runCatching { remoteContext = context.createPackageContext(resPkg, CONTEXT_INCLUDE_CODE or CONTEXT_IGNORE_SECURITY) }
+        } finally {
+            Binder.restoreCallingIdentity(token)
         }
     }
 
