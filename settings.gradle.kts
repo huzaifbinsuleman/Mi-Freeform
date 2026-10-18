@@ -7,7 +7,13 @@ pluginManagement {
         gradlePluginPortal()
         google()
         mavenCentral()
-        maven { url = uri("https://jitpack.io") }
+        maven {
+            url = uri("https://maven.pkg.github.com/kr328/releases")
+            credentials {
+                username = System.getenv("GITHUB_ACTOR") ?: ""
+                password = System.getenv("GITHUB_TOKEN") ?: ""
+            }
+        }
     }
 }
 
@@ -17,7 +23,13 @@ dependencyResolutionManagement {
         mavenLocal()
         google()
         mavenCentral()
-        maven { url = uri("https://jitpack.io") }
+        maven {
+            url = uri("https://maven.pkg.github.com/kr328/releases")
+            credentials {
+                username = System.getenv("GITHUB_ACTOR") ?: ""
+                password = System.getenv("GITHUB_TOKEN") ?: ""
+            }
+        }
     }
 }
 
